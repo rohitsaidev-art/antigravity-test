@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antigravity x Vercel — Test Deployment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: '#0070f3',
+            vercel: '#000000',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+    .glow {
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col font-sans selection:bg-blue-500 selection:text-white">
+
+  <!-- Background decorative blur -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="glow absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-blue-600/30 to-purple-600/30 rounded-full blur-[120px]"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="border-b border-zinc-800/80 backdrop-blur-md sticky top-0 z-50 bg-zinc-950/70">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- Vercel Logo Triangle -->
+        <svg class="w-6 h-6 fill-white" viewBox="0 0 1155 1000">
+          <path d="M577.347 0L1154.69 1000H0z"/>
+        </svg>
+        <span class="text-sm font-semibold tracking-wide text-zinc-300">Antigravity × Vercel</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          Live Test Build
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Hero -->
+  <main class="flex-1 max-w-5xl mx-auto px-6 py-16 sm:py-24 flex flex-col items-center text-center">
+    
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-400 mb-8 shadow-inner">
+      <span>🚀 Ready for Vercel Deployment</span>
+    </div>
+
+    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight max-w-3xl leading-tight sm:leading-tight">
+      Autonomous Workspace <br />
+      <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
+        Connected to Vercel
+      </span>
+    </h1>
+
+    <p class="mt-6 text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed">
+      This test website was generated and pushed autonomously by your Antigravity IDE agent to verify end-to-end continuous deployment.
+    </p>
+
+    <!-- Status Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl mt-12 text-left">
+      
+      <!-- Card 1 -->
+      <div class="p-5 rounded-xl border border-zinc-800/80 bg-zinc-900/50 backdrop-blur">
+        <div class="text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">GitHub Account</div>
+        <div class="text-lg font-bold text-zinc-100 flex items-center gap-2">
+          rohitsaidev-art
+          <span class="text-emerald-400 text-sm">✓</span>
+        </div>
+        <div class="text-xs text-zinc-400 mt-2">Authenticated via ed25519 SSH</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-5 rounded-xl border border-zinc-800/80 bg-zinc-900/50 backdrop-blur">
+        <div class="text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Repository</div>
+        <div class="text-lg font-bold text-zinc-100 flex items-center gap-2">
+          antigravity-test
+          <span class="text-emerald-400 text-sm">✓</span>
+        </div>
+        <div class="text-xs text-zinc-400 mt-2">Active branch: <code class="text-blue-400">main</code></div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-5 rounded-xl border border-zinc-800/80 bg-zinc-900/50 backdrop-blur">
+        <div class="text-xs uppercase tracking-wider text-zinc-500 font-semibold mb-1">Target Platform</div>
+        <div class="text-lg font-bold text-zinc-100 flex items-center gap-2">
+          Vercel Edge
+          <span class="text-sky-400 text-sm">⚡</span>
+        </div>
+        <div class="text-xs text-zinc-400 mt-2">Instant static edge deployment</div>
+      </div>
+
+    </div>
+
+    <!-- Interactive Test Widget -->
+    <div class="mt-12 p-6 rounded-2xl border border-zinc-800 bg-zinc-900/30 max-w-md w-full">
+      <h3 class="text-sm font-semibold text-zinc-300 mb-2">Interactive Test State</h3>
+      <p class="text-xs text-zinc-400 mb-4">Click below to test client-side JavaScript execution:</p>
+      
+      <div class="flex items-center justify-center gap-4">
+        <button id="counterBtn" class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 active:scale-95 transition text-white text-sm font-medium shadow-lg shadow-blue-600/20">
+          Clicks: <span id="count">0</span>
+        </button>
+        <button id="resetBtn" class="px-4 py-2.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-sm font-medium transition">
+          Reset
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800/60 py-8 text-center text-xs text-zinc-500">
+    <p>Deployed with Antigravity AI Pair Programmer &bull; <a href="https://github.com/rohitsaidev-art/antigravity-test" target="_blank" class="text-zinc-400 hover:text-white underline underline-offset-4">View Source on GitHub</a></p>
+  </footer>
+
+  <script>
+    const countEl = document.getElementById('count');
+    const counterBtn = document.getElementById('counterBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    let count = 0;
+
+    counterBtn.addEventListener('click', () => {
+      count++;
+      countEl.textContent = count;
+      counterBtn.classList.add('ring-2', 'ring-blue-400');
+      setTimeout(() => counterBtn.classList.remove('ring-2', 'ring-blue-400'), 150);
+    });
+
+    resetBtn.addEventListener('click', () => {
+      count = 0;
+      countEl.textContent = count;
+    });
+  </script>
+</body>
+</html>
